@@ -13,7 +13,9 @@ namespace ConsoleApp18
         private static EventHubClient eventHubClient;
 
         private const string EventHubConnectionString =
-            "Endpoint=sb://eventhib-dp201-demo01.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=J4fTXGiI7pzqAOzZd2jp49YEzIku5eVw/6efDjCMvCY=";
+            "Endpoint=sb://eventhib-dp201-demo01.servicebus.windows.net/;" +
+            "SharedAccessKeyName=RootManageSharedAccessKey;" +
+            "SharedAccessKey=J4fTXGiI7pzqAOzZd2jp49YEzIku5eVw/6efDjCMvCY=";
         private const string EventHubName = "hub01";
 
         // list of sent messages
