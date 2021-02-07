@@ -3,17 +3,17 @@
 
 CREATE MASTER KEY;
 
-CREATE DATABASE SCOPED CREDENTIAL ADLSCreds
+CREATE DATABASE SCOPED CREDENTIAL ADLSCreds1
 WITH
-	IDENTITY = 'datalakeg2dp201demo01' ,
-    SECRET = 'VSpshzGat3s9GJ0wjCfWb0AMZVSQ7qfjLK/cFMGNVFxoV4yQ9w9Hq2SKlM21SVRHgCsDU6CZAxJmVGeZN61eAg=='
+	IDENTITY = 'Storage Account Key' ,
+    SECRET = ''
 ;
 
 -- https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction-abfs-uri
 CREATE EXTERNAL DATA SOURCE ADLG2Source
 WITH
-  ( LOCATION = 'abfss://synapseinput@datalakeg2dp201demo01.dfs.core.windows.net/sample-csv.csv' ,
-   CREDENTIAL = ADLSCreds,
+  ( LOCATION = 'abfss://synapseinput@datalakedp201demo01.dfs.core.windows.net/sample-csv.csv' ,
+   CREDENTIAL = ADLSCreds1,
     TYPE = HADOOP
  );
 
@@ -44,4 +44,7 @@ WITH (
 	REJECT_TYPE = value,
 	REJECT_VALUE = 2
 );
+
+
+select top 10 * from dbo.MyExternalTable
 

@@ -5,14 +5,14 @@ CREATE MASTER KEY;
 
 CREATE DATABASE SCOPED CREDENTIAL ADLSCreds1
 WITH
-	IDENTITY = 'datalakeg2dp201demo01' ,
+	IDENTITY = 'datalakedp201demo01' ,
     SECRET = 'Vf+KTLSwaGe2qbPAgnOjykTrUWpxTXtyDgsPei6UP/0Rb9IZyrWXWS7EdHRZKpGK5yJLEzgg/H9eRCRAmm1QHA=='
 ;
 
 -- https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction-abfs-uri
 CREATE EXTERNAL DATA SOURCE ADLG2Source
 WITH
-  ( LOCATION = 'abfss://synapseinput@datalakeg2dp201demo01.dfs.core.windows.net/sample-csv.csv' ,
+  ( LOCATION = 'abfss://synapseinput@datalakedp201demo01.dfs.core.windows.net/sample-csv.csv' ,
    CREDENTIAL = ADLSCreds1,
     TYPE = HADOOP
  );
